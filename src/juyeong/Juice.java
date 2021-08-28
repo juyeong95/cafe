@@ -49,6 +49,8 @@ public class Juice {
 		
 		break;
 		}
+		System.out.println("주문하신 음료 금액: "+num2*5000+"원 입니다.");
+		charge();
 		System.out.println("주문하신 "+j+" "+num2+" 잔 나왔습니다.");
 		System.exit(0);
 	}
@@ -72,5 +74,38 @@ public class Juice {
 			System.out.println("테이크아웃 선택");
 			break;
 		}
+	}
+	public void charge() {
+		int num4,money;
+		Scanner input = new Scanner(System.in);
+		System.out.println("1.현금 2.카드 3.쿠폰");
+		System.out.print(">>>");
+		num4=input.nextInt();
+		
+		switch(num4) {
+		case 1:
+			System.out.println("현금을 넣어주세요");
+			System.out.print(">>>");
+			money=input.nextInt();
+			System.out.println(money+"원 투입하셨습니다.");
+			int moneyresult=money-(num2*5000);
+			while(true) {
+			if(money<(num2*5000)) {
+				System.out.println("잔액이 부족합니다 현금을 더 넣어주세요");
+			}else {
+				System.out.println("잔돈 반환: "+moneyresult+"원");
+				break;
+			}
+			}
+			break;
+		case 2:
+			System.out.println("카드를 넣어주세요");
+			break;
+		case 3:
+			System.out.println("쿠폰은 카운터에 문의 주세요.");
+			System.out.println("이용에 불편을 드려 죄송합니다.");
+			System.exit(0);
+		}
+		
 	}
 }
